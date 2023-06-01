@@ -1,0 +1,7 @@
+.photo-grid__photo-info {
+    width: 246px;
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 24px;
+}

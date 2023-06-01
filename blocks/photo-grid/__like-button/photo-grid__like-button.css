@@ -1,0 +1,14 @@
+.photo-grid__like-button {
+    background: none;
+    width: 22px;
+    height: 19px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    transform: opacity 0.3s;
+}
+
+.photo-grid__like-button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}

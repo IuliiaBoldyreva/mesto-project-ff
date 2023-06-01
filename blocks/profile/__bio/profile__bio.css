@@ -1,0 +1,17 @@
+.profile__bio {
+    display: flex;
+    margin-left: 30px;
+    width: 336px;
+    flex-wrap: wrap;
+    align-self: center;
+    row-gap: 16px;
+    column-gap: 18px;
+}
+
+@media screen and (max-width:767px) {
+    .profile__bio {
+        width: 282px;
+        justify-content: center;
+        margin-left: 0;
+    }
+}
