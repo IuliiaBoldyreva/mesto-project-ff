@@ -11,7 +11,7 @@
 @import url(../blocks/profile/__job/profile__job.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/profile/__change-button-img/profile__change-button-img.css);
-@import url(../blocks/profile/__info/profile__info.css); 
+@import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/photo-grid/photo-grid.css);
 @import url(../blocks/photo-grid/__item/photo-grid__item.css);
 @import url(../blocks/photo-grid/__like-button/photo-grid__like-button.css);
