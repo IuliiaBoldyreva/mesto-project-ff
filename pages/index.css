@@ -24,8 +24,6 @@
 @import url(../blocks/photo-grid/__photo-info/photo-grid__photo-info.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/footer/footer.css);
-
-
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__close-button-img/popup__close-button-img.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
