@@ -9,4 +9,4 @@
 
 **GitHub Pages**
 
-* [Ссылка на проект] (https://iuliiaboldyreva.github.io/mesto/)
+* [Ссылка на проект](https://iuliiaboldyreva.github.io/mesto/)
