@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <meta charset="UTF-8"/>
-        <link rel="stylesheet" href="./pages/index.css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./pages/index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mesto</title>
     </head>
     <body class="page">
         <header class="header">
-         <img class="header__logo" src="./images/mesto-logo.svg">
+            <img class="header__logo" src="./images/mesto-logo.svg" alt="Логотип сайта место">
         </header>
         <main class="content">
             <section class="profile">
                 <div class="profile__info">
-                <img class="profile__photo" src="./images/profile-img.jpg">
-                <div class="profile__bio">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button class="profile__change-button" name="changeButton">
-                    <img class="profile__change-button-img" alt="кнопка изменить информацию о себе" src="./images/change-button.png">
-                </button>
-                <p class="profile__job">Исследователь океана</p>
-                </div>
+                    <img class="profile__photo" src="./images/profile-img.jpg" alt="Аватар страницы. В данном случае на фтоо изображён пожилой мужчина">
+                    <div class="profile__bio">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button class="profile__change-button" name="changeButton">
+                            <img class="profile__change-button-img" alt="Кнопка изменить информацию о себе" src="./images/change-button.png">
+                        </button>
+                        <p class="profile__job">Исследователь океана</p>
+                    </div>
                 </div>
                 <button class="profile__add-button" name="addButton">
-                    <img class="profile__add-button-img" alt="кнопка для добавления фотографий" src="./images/add-button.svg">
+                    <img class="profile__add-button-img" alt="Кнопка для добавления фотографий" src="./images/add-button.svg">
                 </button>
             </section>
-            <section class="photo-container" aria-label="фотографии из путешествий, загруженные пользователем">
+            <section class="photo-container" aria-label="Фотографии из путешествий, загруженные пользователем">
                 <ul class="photo-grid">
                     <li class="photo-grid__item">
                         <div class="photo-grid__background">
-                        <img class="photo-grid__image" src="./images/indonezia.jpg" alt="фото природы тайланда, зелёные травянные поля">
-                        <div class="photo-grid__photo-info">
-                        <h2 class="photo-grid__title">Индонезия</h2>
-                        <button class="photo-grid__like-button photo-grid__like-button_active">
-                            <img src="./images/vector-heart.png" alt="лайк">
-                        </button>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="photo-grid__item">
-                        <div class="photo-grid__background">
-                        <img class="photo-grid__image" src="./images/montenegro.jpg" alt="горный хребет с водой у подножья в монтенегро">
-                        <div class="photo-grid__photo-info">
-                        <h2 class="photo-grid__title">Монтенегро</h2>
-                        <button class="photo-grid__like-button photo-grid__like-button_active">
-                            <img src="./images/vector-heart.png" alt="лайк">
-                        </button>
-                        </div>
+                            <img class="photo-grid__image" src="./images/indonezia.jpg" alt="Фото природы тайланда, зелёные травянные поля">
+                            <div class="photo-grid__photo-info">
+                                <h2 class="photo-grid__title">Индонезия</h2>
+                                <button class="photo-grid__like-button photo-grid__like-button_active">
+                                    <img src="./images/vector-heart.png" alt="Лайк">
+                                </button>
+                            </div>
                         </div>
                     </li>
                     <li class="photo-grid__item">
                         <div class="photo-grid__background">
-                        <img class="photo-grid__image" src="./images/rome.jpg" alt="фонтант треви в риме">
-                        <div class="photo-grid__photo-info">
-                        <h2 class="photo-grid__title">Фонтант "Треви", Рим</h2>
-                        <button class="photo-grid__like-button photo-grid__like-button_active">
-                            <img src="./images/vector-heart.png" alt="лайк">
-                        </button>
-                        </div>
-                        </div>
-                    </li>
-                    <li class="photo-grid__item">
-                        <div class="photo-grid__background">
-                        <img class="photo-grid__image" src="./images/sea.jpg" alt="море окруженное скалами">
-                        <div class="photo-grid__photo-info">
-                        <h2 class="photo-grid__title">Морское побережье</h2>
-                        <button class="photo-grid__like-button photo-grid__like-button_active">
-                            <img src="./images/vector-heart.png" alt="лайк">
-                        </button>
-                        </div>
+                            <img class="photo-grid__image" src="./images/montenegro.jpg" alt="горный хребет с водой у подножья в монтенегро">
+                            <div class="photo-grid__photo-info">
+                                <h2 class="photo-grid__title">Монтенегро</h2>
+                                <button class="photo-grid__like-button photo-grid__like-button_active">
+                                    <img src="./images/vector-heart.png" alt="Лайк">
+                                </button>
+                            </div>
                         </div>
                     </li>
                     <li class="photo-grid__item">
                         <div class="photo-grid__background">
-                        <img class="photo-grid__image" src="./images/alpina.jpg" alt="заснеженные горы">
-                        <div class="photo-grid__photo-info">
-                        <h2 class="photo-grid__title">Альпы</h2>
-                        <button class="photo-grid__like-button photo-grid__like-button_active">
-                            <img src="./images/vector-heart.png" alt="лайк">
-                        </button>
-                        </div>
+                            <img class="photo-grid__image" src="./images/rome.jpg" alt="фонтант треви в риме">
+                            <div class="photo-grid__photo-info">
+                                <h2 class="photo-grid__title">Фонтант "Треви", Рим</h2>
+                                <button class="photo-grid__like-button photo-grid__like-button_active">
+                                    <img src="./images/vector-heart.png" alt="Лайк">
+                                </button>
+                            </div>
                         </div>
                     </li>
                     <li class="photo-grid__item">
                         <div class="photo-grid__background">
-                        <img class="photo-grid__image" src="./images/thailand.jpg" alt="чайное поле">
-                        <div class="photo-grid__photo-info">
-                        <h2 class="photo-grid__title">Индонезия</h2>
-                        <button class="photo-grid__like-button photo-grid__like-button_active">
-                            <img src="./images/vector-heart.png" alt="лайк">
-                        </button>
+                            <img class="photo-grid__image" src="./images/sea.jpg" alt="море окруженное скалами">
+                            <div class="photo-grid__photo-info">
+                                <h2 class="photo-grid__title">Морское побережье</h2>
+                                <button class="photo-grid__like-button photo-grid__like-button_active">
+                                    <img src="./images/vector-heart.png" alt="Лайк">
+                                </button>
+                            </div>
                         </div>
+                    </li>
+                    <li class="photo-grid__item">
+                        <div class="photo-grid__background">
+                            <img class="photo-grid__image" src="./images/alpina.jpg" alt="заснеженные горы">
+                            <div class="photo-grid__photo-info">
+                                <h2 class="photo-grid__title">Альпы</h2>
+                                <button class="photo-grid__like-button photo-grid__like-button_active">
+                                    <img src="./images/vector-heart.png" alt="Лайк">
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="photo-grid__item">
+                        <div class="photo-grid__background">
+                            <img class="photo-grid__image" src="./images/thailand.jpg" alt="чайное поле">
+                            <div class="photo-grid__photo-info">
+                                <h2 class="photo-grid__title">Индонезия</h2>
+                                <button class="photo-grid__like-button photo-grid__like-button_active">
+                                    <img src="./images/vector-heart.png" alt="Лайк">
+                                </button>
+                            </div>
                         </div>
                     </li>
                 </ul>
             </section>
-        </main> 
+        </main>
         <footer class="footer">
             <p class="footer__copyright" lang="en">&#xa9;2023 Mesto Russia</p>
         </footer>
         <div class="popup">
             <form class="popup__form">
-            <div class="popup__content">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input type="text" id="nameInput" class="popup__name-input">
-            <input type="text" id="jobInput" class="popup__job-input">
-            <button class="popup__save-button" type="submit" name="submitButton">Сохранить</button>
-            <a class="popup__close-button">
-                <img class="popup__close-button-img" src="./images/close-button.svg" alt="кнопка закрыть окно">
-            </a>
-            </div>
+                <div class="popup__content">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input type="text" id="nameInput" class="popup__name-input">
+                    <input type="text" id="jobInput" class="popup__job-input">
+                    <button class="popup__save-button" type="submit" name="submitButton">Сохранить</button>
+                    <a class="popup__close-button">
+                        <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
+                    </a>
+                </div>
             </form>
         </div>
         <script src="./vendor/script.js"></script>

@@ -1,4 +1,4 @@
-.footer__copyright{
+.footer__copyright {
     font-family: 'Inter', Arial, sans-serif;
     align-self: start;
     font-style: normal;
@@ -14,6 +14,5 @@
     .footer__copyright {
         font-size: 14px;
         line-height: 17px;
-
     }
 }
