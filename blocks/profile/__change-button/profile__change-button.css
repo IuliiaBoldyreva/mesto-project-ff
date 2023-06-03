@@ -8,8 +8,9 @@
     display: flex;
     align-self: center;
     justify-content: center;
-    transform: opacity 0.3s;
+    transition: opacity 0.3s;
 }
+
 .profile__change-button:hover {
     opacity: 0.6;
     cursor: pointer;

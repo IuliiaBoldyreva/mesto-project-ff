@@ -10,15 +10,16 @@
     justify-content: center;
     align-self: center;
     padding: 0;
-    transform: opacity 0.3s;
+    transition: opacity 0.3s;
 }
+
 .profile__add-button:hover {
     opacity: 0.6;
     cursor: pointer;
 }
+
 @media screen and (max-width: 767px) {
     .profile__add-button {
         width: 282px;
     }
 }
-
