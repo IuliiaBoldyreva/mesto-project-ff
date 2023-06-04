@@ -10,7 +10,7 @@
     overflow: hidden;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 890px) {
     .profile__job {
 
         width: 189px;

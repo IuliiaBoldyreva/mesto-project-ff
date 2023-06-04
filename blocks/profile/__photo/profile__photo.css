@@ -6,7 +6,7 @@
   object-fit: cover;
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width: 890px) {
   .profile__photo {
     align-self: center;
   }

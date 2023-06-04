@@ -8,7 +8,7 @@
     column-gap: 18px;
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width: 890px) {
     .profile__bio {
         width: 282px;
         justify-content: center;

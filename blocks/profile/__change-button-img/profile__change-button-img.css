@@ -4,7 +4,7 @@
     align-self: center;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 890px) {
     .profile__change-button-img {
         width: 7.5px;
         height: 7.5px;
