@@ -1,8 +1,8 @@
 .popup__close-button {
     all: unset;
     position: absolute;
-    top: 115px;
-    left: 779px;
+    top: -41px;
+    right: -42px;
     transition: opacity 0.3s;
 }
 
@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 890px) {
     .popup__close-button {
-        top: 94px;
-        left: 560px;
+        top: -39px;
+        right: 0;
     }
 }
