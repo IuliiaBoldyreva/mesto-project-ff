@@ -1,3 +1,38 @@
+const initialCards = [
+    {
+      title: "Индонезия",
+      imageURL: "./images/indonezia.jpg",
+      altText: "Фото природы тайланда, зелёные травянные поля"
+    },
+    {
+        title: "Монтенегро",
+        imageURL: "./images/montenegro.jpg",
+        altText: "горный хребет с водой у подножья в монтенегро"
+    },
+    {
+        title: "Фонтант \"Треви\", Рим",
+        imageURL: "./images/rome.jpg",
+        altText: "фонтант треви в риме"
+    },
+    {
+        title: "Морское побережье",
+        imageURL: "./images/sea.jpg",
+        altText: "море окруженное скалами"
+    },
+    {
+        title: "Альпы",
+        imageURL: "././images/alpina.jpg",
+        altText: "заснеженные горы"
+    },
+    {
+        title: "Индонезия",
+        imageURL: "./images/thailand.jpg",
+        altText: "чайное поле"
+    }
+  ];
+
+const cardTemplate = document.getElementById("photos-grid-template");
+const photoGridItems = document.querySelector(".photo-grid__items");
 const changeButton = document.querySelector(".profile__change-button");
 const popup = document.querySelector(".popup");
 const inputName = document.querySelector(".popup__input_theme_name");
@@ -5,6 +40,24 @@ const profileName = document.querySelector(".profile__name");
 const inputJob = document.querySelector(".popup__input_theme_job");
 const profileJob = document.querySelector(".profile__job");
 const formElement = document.querySelector(".popup__form");
+
+initialCards.forEach((initialCard) => {
+    const cardClone = document.importNode(cardTemplate.content, true);
+    const photoGridImg = cardClone.querySelector(".photo-grid__image");
+    const photoGridTitle = cardClone.querySelector(".photo-grid__title");
+    
+    cardClone.querySelector('.photo-grid__like-button').addEventListener('click', (event) => {
+        event.target.classList.toggle('photo-grid__like-button_active');
+    });
+
+    photoGridImg.src = initialCard.imageURL;
+    photoGridImg.alt = initialCard.altText;
+    photoGridTitle.textContent = initialCard.title;
+
+    photoGridItems.appendChild(cardClone);    
+});
+
+
 
 changeButton.addEventListener("click", () => {
     const defaultValueName = profileName.textContent;

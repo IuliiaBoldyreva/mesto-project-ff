@@ -1,5 +1,7 @@
 .photo-grid__like-button {
     background: none;
+    background-image: url(../../../images/dislike.svg);
+    background-repeat: no-repeat;
     align-self: end;
     width: 22px;
     height: 19px;
