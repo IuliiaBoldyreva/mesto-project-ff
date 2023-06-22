@@ -34,7 +34,9 @@ const initialCards = [
 const cardTemplate = document.getElementById("photos-grid-template");
 const photoGridItems = document.querySelector(".photo-grid__items");
 const changeButton = document.querySelector(".profile__change-button");
-const popup = document.querySelector(".popup");
+const addButton = document.querySelector(".profile__add-button");
+const popup = document.querySelector(".popup_theme_editprofile");
+const popupAddphoto = document.querySelector(".popup_theme_addphoto");
 const inputName = document.querySelector(".popup__input_theme_name");
 const profileName = document.querySelector(".profile__name");
 const inputJob = document.querySelector(".popup__input_theme_job");
@@ -54,7 +56,7 @@ initialCards.forEach((initialCard) => {
     photoGridImg.alt = initialCard.altText;
     photoGridTitle.textContent = initialCard.title;
 
-    photoGridItems.appendChild(cardClone);    
+    photoGridItems.appendChild(cardClone);
 });
 
 
@@ -67,13 +69,18 @@ changeButton.addEventListener("click", () => {
     popup.classList.add("popup_visible");
 });
 
-const closeButton = document.querySelector(".popup__close-button");
+addButton.addEventListener("click", () => {
+    popupAddphoto.classList.add("popup_visible");
+});
 
 function closePopup() {
     popup.classList.remove("popup_visible");
+    popupAddphoto.classList.remove("popup_visible");
 }
 
-closeButton.addEventListener("click", closePopup);
+document.querySelectorAll(".popup__close-button").forEach((button) =>{
+    button.addEventListener("click", closePopup);
+})
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
@@ -81,5 +88,6 @@ function handleFormSubmit(evt) {
     profileJob.textContent = inputJob.value;
     closePopup();
 }
+
 
 formElement.addEventListener('submit', handleFormSubmit); 
