@@ -1,0 +1,7 @@
+.popup__container_theme_photo {
+    background-color: transparent;
+    max-width: 75vw;
+    max-height: 75vh;
+    width: auto;
+    border-radius: 0;
+}

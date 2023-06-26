@@ -28,18 +28,42 @@
             </section>
             <section class="photo-grid" aria-label="Фотографии из путешествий, загруженные пользователем">
                 <ul class="photo-grid__items">
+                    <template id="photos-grid-template">
+                        <li class="photo-grid__item">
+                            <div class="photo-grid__background">
+                                <button class="photo-grid__delete-button" type="button" aria-label="delete"></button>
+                                <img class="photo-grid__image">
+                                <div class="photo-grid__photo-info">
+                                    <h2 class="photo-grid__title"></h2>
+                                    <button class="photo-grid__like-button" type="button" aria-label="like">
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </template>
                 </ul>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright" lang="en">&#xa9;2023 Mesto Russia</p>
         </footer>
+        <div class="popup popup_theme_photo">
+                <div class="popup__container popup__container_theme_photo">
+                        <button class="popup__close-button" type="button">
+                            <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
+                        </button>
+                        <figure class="popup__item">
+                            <img class="popup__img">
+                            <figcaption class="popup__title-img"></figcaption>
+                        </figure>
+                </div>
+        </div>
         <div class="popup popup_theme_editprofile">
             <div class="popup__container">
                     <button class="popup__close-button" type="button">
                         <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
                     </button>
-                    <form class="popup__form" name="userInfo" autocomplete="off">
+                    <form class="popup__form popup__form_theme_edit" name="userInfo" autocomplete="off">
                         <div class="popup__content">
                             <h2 class="popup__title">Редактировать профиль</h2>
                             <input name="name" type="text" class="popup__input popup__input_theme_name" autocomplete="off" id="nameInput" >
@@ -54,7 +78,7 @@
                     <button class="popup__close-button" type="button">
                         <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
                     </button>
-                    <form class="popup__form" name="userInfo" autocomplete="off">
+                    <form class="popup__form popup__form_theme_add" name="userInfo" autocomplete="off">
                         <div class="popup__content">
                             <h2 class="popup__title">Новое место</h2>
                             <input name="name" type="text" class="popup__input popup__input_theme_name-card" autocomplete="off" id="nameCard" placeholder="Название">
@@ -64,19 +88,6 @@
                     </form>
             </div>
         </div>
-        <template id="photos-grid-template">
-            <li class="photo-grid__item">
-                <div class="photo-grid__background">
-                    <button class="photo-grid__delete-button" type="button" aria-label="delete"></button>
-                    <img class="photo-grid__image">
-                    <div class="photo-grid__photo-info">
-                        <h2 class="photo-grid__title"></h2>
-                        <button class="photo-grid__like-button" type="button" aria-label="like">
-                        </button>
-                    </div>
-                </div>
-            </li>
-        </template>
-        <script src="./script/script.js"></script>
+        <script src="./script/script.js" defer></script>
     </body>
 </html>
