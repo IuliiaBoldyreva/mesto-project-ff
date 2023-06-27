@@ -28,18 +28,6 @@
             </section>
             <section class="photo-grid" aria-label="Фотографии из путешествий, загруженные пользователем">
                 <ul class="photo-grid__items">
-                    <template id="photos-grid-template">
-                        <li class="photo-grid__item">
-                            <div class="photo-grid__background">
-                                <button class="photo-grid__delete-button" type="button" aria-label="delete"></button>
-                                <img class="photo-grid__image" />
-                                <div class="photo-grid__photo-info">
-                                    <h2 class="photo-grid__title"></h2>
-                                    <button class="photo-grid__like-button" type="button" aria-label="like"></button>
-                                </div>
-                            </div>
-                        </li>
-                    </template>
                 </ul>
             </section>
         </main>
@@ -57,7 +45,7 @@
                 </figure>
             </div>
         </div>
-        <div class="popup popup_theme_editprofile">
+        <div class="popup popup_theme_edit-profile">
             <div class="popup__container">
                 <button class="popup__close-button" type="button">
                     <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
@@ -65,14 +53,14 @@
                 <form class="popup__form popup__form_theme_edit" name="userInfo" autocomplete="off">
                     <div class="popup__content">
                         <h2 class="popup__title">Редактировать профиль</h2>
-                        <input name="name" type="text" class="popup__input popup__input_theme_name" autocomplete="off" id="nameInput">
-                        <input name="job" type="text" class="popup__input popup__input_theme_job" autocomplete="off" id="jobInput">
+                        <input name="name" type="text" class="popup__input popup__input_theme_name" placeholder="Ваше имя" autocomplete="off" id="nameInput">
+                        <input name="job" type="text" class="popup__input popup__input_theme_job" placeholder="Ваш род дейтельности" autocomplete="off" id="jobInput">
                         <button class="popup__save-button" type="submit" name="submitButton" aria-label="save">Сохранить</button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="popup popup_theme_addphoto">
+        <div class="popup popup_theme_add-photo">
             <div class="popup__container">
                 <button class="popup__close-button" type="button">
                     <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
@@ -87,6 +75,19 @@
                 </form>
             </div>
         </div>
-        <script src="./script/script.js" defer></script>
+        <template id="photos-grid-template">
+            <li class="photo-grid__item">
+                <div class="photo-grid__background">
+                    <button class="photo-grid__delete-button" type="button" aria-label="delete"></button>
+                    <img class="photo-grid__image">
+                    <div class="photo-grid__photo-info">
+                        <h2 class="photo-grid__title"></h2>
+                        <button class="photo-grid__like-button" type="button" aria-label="like"></button>
+                    </div>
+                </div>
+            </li>
+        </template>
+        <script src="./script/cards.js" type="module"></script>
+        <script src="./script/index.js" type="module"></script>
     </body>
 </html>
