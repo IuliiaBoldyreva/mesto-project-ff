@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" >
         <link rel="stylesheet" href="./pages/index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mesto</title>
@@ -32,11 +32,10 @@
                         <li class="photo-grid__item">
                             <div class="photo-grid__background">
                                 <button class="photo-grid__delete-button" type="button" aria-label="delete"></button>
-                                <img class="photo-grid__image">
+                                <img class="photo-grid__image" />
                                 <div class="photo-grid__photo-info">
                                     <h2 class="photo-grid__title"></h2>
-                                    <button class="photo-grid__like-button" type="button" aria-label="like">
-                                    </button>
+                                    <button class="photo-grid__like-button" type="button" aria-label="like"></button>
                                 </div>
                             </div>
                         </li>
@@ -48,44 +47,44 @@
             <p class="footer__copyright" lang="en">&#xa9;2023 Mesto Russia</p>
         </footer>
         <div class="popup popup_theme_photo">
-                <div class="popup__container popup__container_theme_photo">
-                        <button class="popup__close-button" type="button">
-                            <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
-                        </button>
-                        <figure class="popup__item">
-                            <img class="popup__img">
-                            <figcaption class="popup__title-img"></figcaption>
-                        </figure>
-                </div>
+            <div class="popup__container popup__container_theme_photo">
+                <button class="popup__close-button" type="button">
+                    <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
+                </button>
+                <figure class="popup__item">
+                    <img class="popup__img" src="#" alt="здесь будь вставляться текст из js">
+                    <figcaption class="popup__title-img"></figcaption>
+                </figure>
+            </div>
         </div>
         <div class="popup popup_theme_editprofile">
             <div class="popup__container">
-                    <button class="popup__close-button" type="button">
-                        <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
-                    </button>
-                    <form class="popup__form popup__form_theme_edit" name="userInfo" autocomplete="off">
-                        <div class="popup__content">
-                            <h2 class="popup__title">Редактировать профиль</h2>
-                            <input name="name" type="text" class="popup__input popup__input_theme_name" autocomplete="off" id="nameInput" >
-                            <input name="job" type="text"  class="popup__input popup__input_theme_job" autocomplete="off" id="jobInput">
-                            <button class="popup__save-button" type="submit" name="submitButton" aria-label="save">Сохранить</button>
-                        </div>
-                    </form>
+                <button class="popup__close-button" type="button">
+                    <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
+                </button>
+                <form class="popup__form popup__form_theme_edit" name="userInfo" autocomplete="off">
+                    <div class="popup__content">
+                        <h2 class="popup__title">Редактировать профиль</h2>
+                        <input name="name" type="text" class="popup__input popup__input_theme_name" autocomplete="off" id="nameInput">
+                        <input name="job" type="text" class="popup__input popup__input_theme_job" autocomplete="off" id="jobInput">
+                        <button class="popup__save-button" type="submit" name="submitButton" aria-label="save">Сохранить</button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="popup popup_theme_addphoto">
             <div class="popup__container">
-                    <button class="popup__close-button" type="button">
-                        <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
-                    </button>
-                    <form class="popup__form popup__form_theme_add" name="userInfo" autocomplete="off">
-                        <div class="popup__content">
-                            <h2 class="popup__title">Новое место</h2>
-                            <input name="name" type="text" class="popup__input popup__input_theme_name-card" autocomplete="off" id="nameCard" placeholder="Название">
-                            <input name="job" type="text"  class="popup__input popup__input_theme_url" autocomplete="off" id="urlCard" placeholder="Ссылка на картинку">
-                            <button class="popup__save-button" type="submit" name="submitButton" aria-label="save">Сохранить</button>
-                        </div>
-                    </form>
+                <button class="popup__close-button" type="button">
+                    <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
+                </button>
+                <form class="popup__form popup__form_theme_add" name="userInfo" autocomplete="off">
+                    <div class="popup__content">
+                        <h2 class="popup__title">Новое место</h2>
+                        <input name="name" type="text" class="popup__input popup__input_theme_name-card" autocomplete="off" id="nameCard" placeholder="Название">
+                        <input name="job" type="text" class="popup__input popup__input_theme_url" autocomplete="off" id="urlCard" placeholder="Ссылка на картинку">
+                        <button class="popup__save-button" type="submit" name="submitButton" aria-label="save">Сохранить</button>
+                    </div>
+                </form>
             </div>
         </div>
         <script src="./script/script.js" defer></script>
