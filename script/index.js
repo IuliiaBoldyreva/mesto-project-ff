@@ -14,6 +14,7 @@ const formElementEdit = document.querySelector(".popup__form_theme_edit");
 const formElementAdd = document.querySelector(".popup__form_theme_add");
 const popupPhotoOpen = document.querySelector(".popup_theme_photo");
 const popupImg = popupPhotoOpen.querySelector(".popup__img");
+const popupTitle = popupPhotoOpen.querySelector(".popup__title-img");
 
 changeButton.addEventListener("click", () => {
     const defaultValueName = profileName.textContent;
@@ -108,8 +109,6 @@ function handleAddCard(event) {
 formElementAdd.addEventListener('submit', handleAddCard);
 
 function openPhotoPopup(imageURL, titleText) {
-    const popupTitle = popupPhotoOpen.querySelector(".popup__title-img");
-  
     popupImg.src = imageURL;
     popupImg.alt = titleText;
     popupTitle.textContent = titleText;
