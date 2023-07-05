@@ -2,8 +2,8 @@ import { initialCards } from './cards.js';
 
 const cardTemplate = document.getElementById("photos-grid-template");
 const photoGridСontainner = document.querySelector(".photo-grid__items");
-const changeButton = document.querySelector(".profile__change-button");
-const addButton = document.querySelector(".profile__add-button");
+export const changeButton = document.querySelector(".profile__change-button");
+export const addButton = document.querySelector(".profile__add-button");
 const popupEditProfile = document.querySelector(".popup_theme_edit-profile");
 const popupAddphoto = document.querySelector(".popup_theme_add-photo");
 const inputName = document.querySelector(".popup__input_theme_name");
@@ -25,17 +25,38 @@ changeButton.addEventListener("click", () => {
 });
 
 addButton.addEventListener("click", () => {
+    formElementAdd.reset();
     openPopup(popupAddphoto);
 });
 
 function openPopup(popupNode){
     popupNode.classList.add('popup_visible');
+    popupNode.addEventListener('click', closePopupByOverlay);
+    document.addEventListener('keydown', closePopupByKey);
 }
 
 function closePopup(popupNode) {
-    popupNode.classList.remove('popup_visible')
+    popupNode.classList.remove('popup_visible');
+    popupNode.removeEventListener('click', closePopupByOverlay);
+    document.removeEventListener('keydown', closePopupByKey);
 }
 
+
+function closePopupByOverlay(event) {
+    if (event.target === event.currentTarget) {
+      closePopup(event.target);
+    }
+  }
+
+  function closePopupByKey(event) {
+    if (event.key === 'Escape') {
+      const openedPopup = document.querySelector('.popup_visible');
+      if (openedPopup) {
+        closePopup(openedPopup);
+      }
+    }
+  }
+  
 document.querySelectorAll(".popup__close-button").forEach((button) => {
     button.addEventListener("click", (event) => {
         const popupNode = event.currentTarget.closest('.popup');

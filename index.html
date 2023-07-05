@@ -53,8 +53,10 @@
                 <form class="popup__form popup__form_theme_edit" name="userInfo" autocomplete="off">
                     <div class="popup__content">
                         <h2 class="popup__title">Редактировать профиль</h2>
-                        <input name="name" type="text" class="popup__input popup__input_theme_name" placeholder="Ваше имя" autocomplete="off" id="nameInput">
-                        <input name="job" type="text" class="popup__input popup__input_theme_job" placeholder="Ваш род дейтельности" autocomplete="off" id="jobInput">
+                        <input name="name" type="text" class="popup__input popup__input_theme_name" placeholder="Имя" autocomplete="off" id="nameInput" required minlength="2" maxlength="40">
+                        <span id="name-error" class="popup__input-error"></span>
+                        <input name="job" type="text" class="popup__input popup__input_theme_job" placeholder="Ваш род дейтельности" autocomplete="off" id="jobInput" required minlength="2" maxlength="200">
+                        <span id="job-error" class="popup__input-error"></span>
                         <button class="popup__save-button" type="submit" name="submitButton" aria-label="save">Сохранить</button>
                     </div>
                 </form>
@@ -65,11 +67,13 @@
                 <button class="popup__close-button" type="button">
                     <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
                 </button>
-                <form class="popup__form popup__form_theme_add" name="userInfo" autocomplete="off">
+                <form class="popup__form popup__form_theme_add" name="addCard" autocomplete="off">
                     <div class="popup__content">
                         <h2 class="popup__title">Новое место</h2>
-                        <input name="name" type="text" class="popup__input popup__input_theme_name-card" autocomplete="off" id="nameCard" placeholder="Название">
-                        <input name="job" type="text" class="popup__input popup__input_theme_url" autocomplete="off" id="urlCard" placeholder="Ссылка на картинку">
+                        <input name="card" type="text" class="popup__input popup__input_theme_name-card" autocomplete="off" id="nameCard" placeholder="Название"  required minlength="2" maxlength="30">
+                        <span id="card-error" class="popup__input-error"></span>
+                        <input name="url" type="url" class="popup__input popup__input_theme_url" autocomplete="off" id="urlCard" placeholder="Ссылка на картинку"  required>
+                        <span id="url-error" class="popup__input-error"></span>
                         <button class="popup__save-button" type="submit" name="submitButton" aria-label="save">Сохранить</button>
                     </div>
                 </form>
@@ -87,6 +91,7 @@
                 </div>
             </li>
         </template>
+        <script src="./script/validate.js" type="module"></script>
         <script src="./script/cards.js" type="module"></script>
         <script src="./script/index.js" type="module"></script>
     </body>
