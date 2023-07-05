@@ -75,9 +75,11 @@ function enableValidation(formSelector, openFormButton){
     const formElement = document.querySelector(config.formSelector);
 
     openFormButton.addEventListener('click', function() {
-        const inputElement = formElement.querySelector(config.inputSelector);
-        const erorrElement = formElement.querySelector(`#${inputElement.name}-error`);
-        hideError(inputElement, erorrElement, config);
+        const inputs = formElement.querySelectorAll(config.inputSelector);
+        inputs.forEach(input => {
+            const erorrElement = formElement.querySelector(`#${input.name}-error`);
+            hideError(input, erorrElement, config);
+        });
     });
 
     setEventListner(formElement, config);
