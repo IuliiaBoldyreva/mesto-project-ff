@@ -1,12 +1,10 @@
-import { addButton, changeButton } from "./index.js";
-
 function showError(inputElement, erorrElement, config){
     inputElement.classList.add(config.inputErrorClass);
     erorrElement.textContent = inputElement.validationMessage;
 }
 
 
-function hideError(inputElement, erorrElement, config){
+export function hideError(inputElement, erorrElement, config){
     inputElement.classList.remove(config.inputErrorClass);
     erorrElement.textContent = '';
 }
@@ -23,7 +21,7 @@ function checkInputValidity(inputElement, formElement, config){
     }
 }
 
-function disabledButton(buttonElement, config){
+export function disabledButton(buttonElement, config){
     buttonElement.disabled = "disabled";
     buttonElement.classList.add(config.inactiveButtonClass);
 }
@@ -43,7 +41,6 @@ function toggleButtonState(buttonElement, isActive, config){
 
 
 function setEventListner(formElement, config){
-    console.log({formElement})
     const inputList = formElement.querySelectorAll(config.inputSelector);
     const submitButtonElement = formElement.querySelector(config.submitButtonElement);
 
@@ -62,28 +59,32 @@ function setEventListner(formElement, config){
     });
 }
 
+function enableValidation(config){
+    
+    const formsList = document.querySelectorAll(config.formSelector);
 
-
-function enableValidation(formSelector, openFormButton){
-    const config = {
-        formSelector: formSelector,
-        inputSelector: ".popup__input",
-        submitButtonElement: ".popup__save-button",
-        inactiveButtonClass: "popup__save-button_invalid",
-        inputErrorClass: "popop__input_state_invalid",
-    };
-    const formElement = document.querySelector(config.formSelector);
-
-    openFormButton.addEventListener('click', function() {
-        const inputs = formElement.querySelectorAll(config.inputSelector);
-        inputs.forEach(input => {
-            const erorrElement = formElement.querySelector(`#${input.name}-error`);
-            hideError(input, erorrElement, config);
-        });
+    [...formsList].forEach(function (formElement) {
+        setEventListner(formElement, config);
     });
 
-    setEventListner(formElement, config);
+    // openFormButton.addEventListener('click', function() {
+    //     const inputs = formElement.querySelectorAll(config.inputSelector);
+    //     inputs.forEach(input => {
+    //         const erorrElement = formElement.querySelector(`#${input.name}-error`);
+    //         hideError(input, erorrElement, config);
+    //     });
+    // });
+
+   
 }
 
-enableValidation('.popup__form_theme_edit', changeButton);
-enableValidation('.popup__form_theme_add', addButton);
+export const config = {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonElement: ".popup__save-button",
+    inactiveButtonClass: "popup__save-button_invalid",
+    inputErrorClass: "popop__input_state_invalid",
+};
+
+enableValidation(config);
+
