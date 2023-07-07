@@ -137,7 +137,7 @@ function handleAddCard(event) {
      renderCardAdd({
        imageURL: urlImg.value,
       altText: title.value,
-       title
+       title: title.value
     }, photoGridContainner);
 
     closePopup(popupAddphoto);
