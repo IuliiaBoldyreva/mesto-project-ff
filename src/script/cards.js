@@ -1,32 +1,39 @@
+import indoneziaImgSrc from  "../images/indonezia.jpg";
+import montenegroImgSrc from "../images/montenegro.jpg";
+import romeImgSrc from "../images/rome.jpg";
+import seaImgSrc from "../images/sea.jpg";
+import alpinaImgSrc from "../images/alpina.jpg";
+import thailandImgSrc from "../images/thailand.jpg";
+
 export const initialCards = [
     {
         title: "Индонезия",
-        imageURL: "./images/indonezia.jpg",
+        imageURL: indoneziaImgSrc,
         altText: "Фото природы тайланда, зелёные травянные поля"
     },
     {
         title: "Монтенегро",
-        imageURL: "./images/montenegro.jpg",
+        imageURL: montenegroImgSrc,
         altText: "горный хребет с водой у подножья в монтенегро"
     },
     {
         title: "Фонтант \"Треви\", Рим",
-        imageURL: "./images/rome.jpg",
+        imageURL: romeImgSrc,
         altText: "фонтант треви в риме"
     },
     {
         title: "Морское побережье",
-        imageURL: "./images/sea.jpg",
+        imageURL: seaImgSrc,
         altText: "море окруженное скалами"
     },
     {
         title: "Альпы",
-        imageURL: "././images/alpina.jpg",
+        imageURL: alpinaImgSrc,
         altText: "заснеженные горы"
     },
     {
         title: "Тайланд",
-        imageURL: "./images/thailand.jpg",
+        imageURL: thailandImgSrc,
         altText: "чайное поле"
     }
 ];

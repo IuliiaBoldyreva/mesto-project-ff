@@ -2,28 +2,27 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8" >
-        <link rel="stylesheet" href="./pages/index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mesto</title>
     </head>
     <body class="page">
         <header class="header">
-            <img class="header__logo" src="./images/mesto-logo.svg" alt="Логотип сайта место">
+            <img class="header__logo" src="<%=require('./images/mesto-logo.svg')%>" alt="Логотип сайта место">
         </header>
         <main class="content">
             <section class="profile">
                 <div class="profile__info">
-                    <img class="profile__photo" src="./images/profile-img.jpg" alt="Аватар страницы. В данном случае на фтоо изображён пожилой мужчина">
+                    <img class="profile__photo" src="<%=require('./images/profile-img.jpg')%>" alt="Аватар страницы. В данном случае на фтоо изображён пожилой мужчина">
                     <div class="profile__bio">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
                         <button class="profile__change-button" name="changeButton" type="button" aria-label="edit">
-                            <img class="profile__change-button-img" alt="Кнопка изменить информацию о себе" src="./images/change-button.svg">
+                            <img class="profile__change-button-img" alt="Кнопка изменить информацию о себе" src="<%=require('./images/change-button.svg')%>">
                         </button>
                         <p class="profile__job">Исследователь океана</p>
                     </div>
                 </div>
                 <button class="profile__add-button" name="addButton" type="button" aria-label="add">
-                    <img class="profile__add-button-img" alt="Кнопка для добавления фотографий" src="./images/add-button.svg">
+                    <img class="profile__add-button-img" alt="Кнопка для добавления фотографий" src="<%=require('./images/add-button.svg')%>">
                 </button>
             </section>
             <section class="photo-grid" aria-label="Фотографии из путешествий, загруженные пользователем">
@@ -37,7 +36,7 @@
         <div class="popup popup_theme_photo">
             <div class="popup__container popup__container_theme_photo">
                 <button class="popup__close-button" type="button">
-                    <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
+                    <img class="popup__close-button-img" src="<%=require('./images/close-button.svg')%>" alt="Кнопка закрыть окно">
                 </button>
                 <figure class="popup__item">
                     <img class="popup__img" src="#" alt="здесь будь вставляться текст из js">
@@ -48,7 +47,7 @@
         <div class="popup popup_theme_edit-profile">
             <div class="popup__container">
                 <button class="popup__close-button" type="button">
-                    <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
+                    <img class="popup__close-button-img" src="<%=require('./images/close-button.svg')%>" alt="Кнопка закрыть окно">
                 </button>
                 <form class="popup__form popup__form_theme_edit" name="userInfo" autocomplete="off">
                     <div class="popup__content">
@@ -65,7 +64,7 @@
         <div class="popup popup_theme_add-photo">
             <div class="popup__container">
                 <button class="popup__close-button" type="button">
-                    <img class="popup__close-button-img" src="./images/close-button.svg" alt="Кнопка закрыть окно">
+                    <img class="popup__close-button-img" src="<%=require('./images/close-button.svg')%>" alt="Кнопка закрыть окно">
                 </button>
                 <form class="popup__form popup__form_theme_add" name="addCard" autocomplete="off">
                     <div class="popup__content">
@@ -91,8 +90,5 @@
                 </div>
             </li>
         </template>
-        <script src="./script/validate.js" type="module"></script>
-        <script src="./script/cards.js" type="module"></script>
-        <script src="./script/index.js" type="module"></script>
     </body>
 </html>
