@@ -1,3 +1,10 @@
+export function resetErrors(inputsList, config){
+    [...inputsList].forEach(function (inputElement) {
+        const erorrElement = document.querySelector(`#${inputElement.name}-error`);
+        hideError(inputElement, erorrElement, config);
+    });
+}
+
 function showError(inputElement, erorrElement, config) {
   inputElement.classList.add(config.inputErrorClass);
   erorrElement.textContent = inputElement.validationMessage;

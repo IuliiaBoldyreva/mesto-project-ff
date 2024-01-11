@@ -25,4 +25,4 @@ function closePopupByKey(event) {
   }
 }
 
-export { openPopup, closePopup, closePopupByOverlay, closePopupByKey };
+export { openPopup, closePopup };
