@@ -27,7 +27,7 @@ function checkInputValidity(inputElement, formElement, config) {
 }
 
 export function disabledButton(buttonElement, config) {
-  buttonElement.disabled = "disabled";
+  buttonElement.disabled = true;
   buttonElement.classList.add(config.inactiveButtonClass);
 }
 
@@ -52,7 +52,7 @@ function setEventListner(formElement, config) {
 
   toggleButtonState(submitButtonElement, formElement.checkValidity(), config);
 
-  [...inputList].forEach(function (inputElement) {
+  inputList.forEach(function (inputElement) {
     inputElement.addEventListener("input", function () {
       toggleButtonState(
         submitButtonElement,
@@ -65,14 +65,13 @@ function setEventListner(formElement, config) {
 
   formElement.addEventListener("submit", (evt) => {
     evt.preventDefault();
-    if (!formElement.checkValidity()) return;
   });
 }
 
 function enableValidation(config) {
   const formsList = document.querySelectorAll(config.formSelector);
 
-  [...formsList].forEach(function (formElement) {
+  formsList.forEach(function (formElement) {
     setEventListner(formElement, config);
   });
 }

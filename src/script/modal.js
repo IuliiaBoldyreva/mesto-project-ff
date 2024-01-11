@@ -25,4 +25,16 @@ function closePopupByKey(event) {
   }
 }
 
-export { openPopup, closePopup };
+function openPhotoPopup(imageURL, titleText) {
+  const popupPhotoOpen = document.querySelector(".popup_theme_photo");
+  const popupTitle = popupPhotoOpen.querySelector(".popup__title-img");
+  const popupImg = popupPhotoOpen.querySelector(".popup__img");
+
+  popupImg.src = imageURL;
+  popupImg.alt = titleText;
+  popupTitle.textContent = titleText;
+
+  openPopup(popupPhotoOpen);
+}
+
+export { openPopup, closePopup, openPhotoPopup };

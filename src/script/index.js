@@ -1,8 +1,13 @@
 import { initialCards } from "./constants.js";
 import { disabledButton, config, resetErrors } from "./validate.js";
 import { openPopup, closePopup } from "./modal.js";
+import {
+  createCard,
+  handleLikeCard,
+  handleCardPhotoClick,
+  handleRemoveCardClick,
+} from "./card.js";
 
-const cardTemplate = document.getElementById("photos-grid-template");
 const photoGridContainner = document.querySelector(".photo-grid__items");
 const changeButton = document.querySelector(".profile__change-button");
 const addButton = document.querySelector(".profile__add-button");
@@ -14,9 +19,6 @@ const inputJob = document.querySelector(".popup__input_theme_job");
 const profileJob = document.querySelector(".profile__job");
 const formElementEdit = document.querySelector(".popup__form_theme_edit");
 const formElementAdd = document.querySelector(".popup__form_theme_add");
-const popupPhotoOpen = document.querySelector(".popup_theme_photo");
-const popupImg = popupPhotoOpen.querySelector(".popup__img");
-const popupTitle = popupPhotoOpen.querySelector(".popup__title-img");
 const saveButtonEdit = popupEditProfile.querySelector(".popup__save-button");
 const saveButtonAdd = popupAddphoto.querySelector(".popup__save-button");
 const popupInputsAdd = popupAddphoto.querySelectorAll(config.inputSelector);
@@ -59,48 +61,15 @@ function handleFormSubmit(evt) {
 
 formElementEdit.addEventListener("submit", handleFormSubmit);
 
-function createCard(data, onLikeClick, onCardPhotoClick, onRemoveCardClick) {
-  const tamplateElement = cardTemplate.content
-    .querySelector(".photo-grid__item")
-    .cloneNode(true);
-  const photoGridImg = tamplateElement.querySelector(".photo-grid__image");
-  const templateTitle = tamplateElement.querySelector(".photo-grid__title");
-  const buttonDelete = tamplateElement.querySelector(
-    ".photo-grid__delete-button"
-  );
-
-  tamplateElement
-    .querySelector(".photo-grid__like-button")
-    .addEventListener("click", onLikeClick);
-
-  photoGridImg.src = data.imageURL;
-  photoGridImg.alt = data.altText;
-  templateTitle.textContent = data.title;
-
-  buttonDelete.addEventListener("click", onRemoveCardClick);
-
-  photoGridImg.addEventListener("click", onCardPhotoClick);
-
-  return tamplateElement;
-}
-
-function handleLikeCard(event) {
-    event.target.classList.toggle('photo-grid__like-button_active');
-}
-
-function handleCardPhotoClick(event) {
-    openPhotoPopup(event.target.src, event.target.alt);
-}
-
-function handleRemoveCardClick(event) {
-    const card = event.target.closest('.photo-grid__item');
-    if (!card) return;
-
-    card.remove();
-}
-
 function renderCard(data, container) {
-  container.appendChild(createCard(data, handleLikeCard, handleCardPhotoClick, handleRemoveCardClick));
+  container.appendChild(
+    createCard(
+      data,
+      handleLikeCard,
+      handleCardPhotoClick,
+      handleRemoveCardClick
+    )
+  );
 }
 
 initialCards.forEach((item) => {
@@ -108,7 +77,14 @@ initialCards.forEach((item) => {
 });
 
 function renderCardAdd(card, container) {
-  container.prepend(createCard(card, handleLikeCard, handleCardPhotoClick, handleRemoveCardClick));
+  container.prepend(
+    createCard(
+      card,
+      handleLikeCard,
+      handleCardPhotoClick,
+      handleRemoveCardClick
+    )
+  );
 }
 
 function handleAddCard(event) {
@@ -128,11 +104,3 @@ function handleAddCard(event) {
 }
 
 formElementAdd.addEventListener("submit", handleAddCard);
-
-function openPhotoPopup(imageURL, titleText) {
-  popupImg.src = imageURL;
-  popupImg.alt = titleText;
-  popupTitle.textContent = titleText;
-
-  openPopup(popupPhotoOpen);
-}
