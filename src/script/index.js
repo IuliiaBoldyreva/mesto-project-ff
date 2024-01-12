@@ -1,5 +1,5 @@
-import { initialCards } from "./constants.js";
-import { disabledButton, config, resetErrors } from "./validate.js";
+import { initialCards, config } from "./constants.js";
+import { disabledButton, resetErrors, enableValidation } from "./validate.js";
 import { openPopup, closePopup } from "./modal.js";
 import {
   createCard,
@@ -104,3 +104,5 @@ function handleAddCard(event) {
 }
 
 formElementAdd.addEventListener("submit", handleAddCard);
+
+enableValidation(config);

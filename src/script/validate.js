@@ -68,20 +68,10 @@ function setEventListner(formElement, config) {
   });
 }
 
-function enableValidation(config) {
+export function enableValidation(config) {
   const formsList = document.querySelectorAll(config.formSelector);
 
   formsList.forEach(function (formElement) {
     setEventListner(formElement, config);
   });
 }
-
-export const config = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonElement: ".popup__save-button",
-  inactiveButtonClass: "popup__save-button_invalid",
-  inputErrorClass: "popop__input_state_invalid",
-};
-
-enableValidation(config);
