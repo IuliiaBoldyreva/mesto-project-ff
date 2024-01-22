@@ -1,0 +1,18 @@
+.profile__container {
+    cursor: pointer;
+    position: relative;
+}
+
+.profile__container:hover > .profile__overlay {
+    opacity: 0.8;
+}
+
+.profile__container:hover > .profile__photo-edit {
+    opacity: 1;
+}
+
+@media screen and (max-width: 890px) {
+    .profile__container {
+        align-self: center;
+    }
+}

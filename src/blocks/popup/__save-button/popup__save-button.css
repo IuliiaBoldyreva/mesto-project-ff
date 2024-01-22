@@ -18,7 +18,7 @@
     margin-bottom: 37px;
 }
 
-.popup__save-button:hover {
+.popup__save-button:hover:not(:disabled) {
     opacity: 0.8;
     cursor: pointer;
 }

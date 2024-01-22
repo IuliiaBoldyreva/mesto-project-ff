@@ -1,0 +1,8 @@
+.photo-grid__like-count {
+  font-family: Inter;
+  color: #000000;
+  font-size: 13px;
+  width: 10px;
+  height: 13px;
+  flex-shrink: 0;
+}

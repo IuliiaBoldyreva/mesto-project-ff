@@ -1,0 +1,11 @@
+.profile__overlay {
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: opacity 0.3s ease-in-out;
+}

@@ -12,13 +12,22 @@
         <main class="content">
             <section class="profile">
                 <div class="profile__info">
-                    <img class="profile__photo" src="<%=require('./images/profile-img.jpg')%>" alt="Аватар страницы. В данном случае на фтоо изображён пожилой мужчина">
+                    <div class="profile__container">
+                        <img
+                            width="120px"
+                            height="120px"
+                            class="profile__photo" 
+                            alt=""
+                        >
+                        <div class="profile__overlay"></div>
+                        <img class="profile__photo-edit" src="<%=require('./images/pen.png')%>" alt="" />
+                    </div>
                     <div class="profile__bio">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <h1 class="profile__name"></h1>
                         <button class="profile__change-button" name="changeButton" type="button" aria-label="изменить">
                             <img class="profile__change-button-img" alt="Кнопка изменить информацию о себе" src="<%=require('./images/change-button.svg')%>">
                         </button>
-                        <p class="profile__job">Исследователь океана</p>
+                        <p class="profile__job"></p>
                     </div>
                 </div>
                 <button class="profile__add-button" name="addButton" type="button" aria-label="добавить">
@@ -52,9 +61,32 @@
                 <form class="popup__form popup__form_theme_edit" name="userInfo" autocomplete="off">
                     <div class="popup__content">
                         <h2 class="popup__title">Редактировать профиль</h2>
-                        <input name="name" type="text" class="popup__input popup__input_theme_name" placeholder="Имя" autocomplete="off" id="nameInput" required minlength="2" maxlength="40">
+                        <input
+                            name="name"
+                            type="text"
+                            class="popup__input popup__input_theme_name"
+                            placeholder="Имя"
+                            autocomplete="off"
+                            id="nameInput"
+                            required minlength="2"
+                            maxlength="40"
+                            pattern="^[a-zA-Zа-яА-Я\-\s]+$"
+                            data-custom-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+                        >
                         <span id="name-error" class="popup__input-error"></span>
-                        <input name="job" type="text" class="popup__input popup__input_theme_job" placeholder="Ваш род дейтельности" autocomplete="off" id="jobInput" required minlength="2" maxlength="200">
+                        <input
+                            name="job"
+                            type="text"
+                            class="popup__input popup__input_theme_job"
+                            placeholder="Ваш род дейтельности"
+                            autocomplete="off"
+                            id="jobInput"
+                            required
+                            minlength="2"
+                            maxlength="200"
+                            pattern="^[a-zA-Zа-яА-Я\-\s]+$"
+                            data-custom-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+                        >
                         <span id="job-error" class="popup__input-error"></span>
                         <button class="popup__save-button" type="submit" name="submitButton" aria-label="сохранить">Сохранить</button>
                     </div>
@@ -69,14 +101,55 @@
                 <form class="popup__form popup__form_theme_add" name="addCard" autocomplete="off">
                     <div class="popup__content">
                         <h2 class="popup__title">Новое место</h2>
-                        <input name="card" type="text" class="popup__input popup__input_theme_name-card" autocomplete="off" id="nameCard" placeholder="Название"  required minlength="2" maxlength="30">
+                        <input
+                            name="card"
+                            type="text"
+                            class="popup__input popup__input_theme_name-card"
+                            autocomplete="off"
+                            id="nameCard"
+                            placeholder="Название"
+                            required
+                            minlength="2"
+                            maxlength="30"
+                            pattern="^[a-zA-Zа-яА-Я\-\s]+$"
+                            data-custom-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+                        >
                         <span id="card-error" class="popup__input-error"></span>
-                        <input name="url" type="url" class="popup__input popup__input_theme_url" autocomplete="off" id="urlCard" placeholder="Ссылка на картинку"  required>
+                        <input
+                            name="url"
+                            type="url"
+                            class="popup__input popup__input_theme_url"
+                            autocomplete="off"
+                            id="urlCard"
+                            placeholder="Ссылка на картинку"
+                            required
+                        >
                         <span id="url-error" class="popup__input-error"></span>
                         <button class="popup__save-button" type="submit" name="submitButton" aria-label="сохранить">Сохранить</button>
                     </div>
                 </form>
             </div>
+        </div>
+        <div class="popup popup_theme_edit-avatar">
+            <div class="popup__container">
+                <button class="popup__close-button" type="button">
+                    <img class="popup__close-button-img" src="<%=require('./images/close-button.svg')%>" alt="Кнопка закрыть окно">
+                </button>
+                <form class="popup__form popup__form_theme_avatar" name="editAvatar" autocomplete="off">
+                    <div class="popup__content">
+                    <h2 class="popup__title">Обновить аватар</h2>
+                    <input
+                        class="popup__input popup__input_theme_url"
+                        required 
+                        name="avatarUrl" 
+                        type="url"
+                        id="avatarUrl"
+                        placeholder="Ссылка на фото"
+                    >
+                    <span id="avatarUrl-error" class="popup__input-error"></span>
+                    <button class="popup__save-button" type="submit" name="submitButton" aria-label="сохранить">Сохранить</button>
+                </div>
+            </form>
         </div>
         <template id="photos-grid-template">
             <li class="photo-grid__item">
@@ -85,7 +158,10 @@
                     <img class="photo-grid__image">
                     <div class="photo-grid__photo-info">
                         <h2 class="photo-grid__title"></h2>
-                        <button class="photo-grid__like-button" type="button" aria-label="поставить лайк"></button>
+                        <div class="photo-grid__like">
+                            <button class="photo-grid__like-button" type="button" aria-label="поставить лайк"></button>
+                            <span class="photo-grid__like-count"></span>
+                        </div>
                     </div>
                 </div>
             </li>

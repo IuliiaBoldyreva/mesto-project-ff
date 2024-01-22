@@ -1,16 +1,9 @@
-export function resetErrors(inputsList, config){
-    [...inputsList].forEach(function (inputElement) {
-        const erorrElement = document.querySelector(`#${inputElement.name}-error`);
-        hideError(inputElement, erorrElement, config);
-    });
-}
-
 function showError(inputElement, erorrElement, config) {
   inputElement.classList.add(config.inputErrorClass);
   erorrElement.textContent = inputElement.validationMessage;
 }
 
-export function hideError(inputElement, erorrElement, config) {
+function hideError(inputElement, erorrElement, config) {
   inputElement.classList.remove(config.inputErrorClass);
   erorrElement.textContent = "";
 }
@@ -20,13 +13,18 @@ function checkInputValidity(inputElement, formElement, config) {
   const erorrElement = formElement.querySelector(`#${inputElement.name}-error`);
 
   if (!isInputValid) {
+    if (inputElement.validity.patternMismatch) {
+      inputElement.setCustomValidity(
+        inputElement.getAttribute("data-custom-error")
+      );
+    }
     showError(inputElement, erorrElement, config);
   } else {
     hideError(inputElement, erorrElement, config);
   }
 }
 
-export function disabledButton(buttonElement, config) {
+function disabledButton(buttonElement, config) {
   buttonElement.disabled = true;
   buttonElement.classList.add(config.inactiveButtonClass);
 }
@@ -36,8 +34,8 @@ function enableButton(buttonElement, config) {
   buttonElement.classList.remove(config.inactiveButtonClass);
 }
 
-function toggleButtonState(buttonElement, isActive, config) {
-  if (!isActive) {
+function toggleButtonState(buttonElement, isValid, config) {
+  if (!isValid) {
     disabledButton(buttonElement, config);
   } else {
     enableButton(buttonElement, config);
@@ -54,6 +52,7 @@ function setEventListner(formElement, config) {
 
   inputList.forEach(function (inputElement) {
     inputElement.addEventListener("input", function () {
+      inputElement.setCustomValidity("");
       toggleButtonState(
         submitButtonElement,
         formElement.checkValidity(),
@@ -68,10 +67,26 @@ function setEventListner(formElement, config) {
   });
 }
 
-export function enableValidation(config) {
+function enableValidation(config) {
   const formsList = document.querySelectorAll(config.formSelector);
 
   formsList.forEach(function (formElement) {
     setEventListner(formElement, config);
   });
 }
+
+function clearValidation(formElement, config) {
+  formElement.reset();
+  const inputList = formElement.querySelectorAll(config.inputSelector);
+  const submitButtonElement = formElement.querySelector(
+    config.submitButtonElement
+  );
+
+  inputList.forEach(function (inputElement) {
+    const erorrElement = document.querySelector(`#${inputElement.name}-error`);
+    hideError(inputElement, erorrElement, config);
+  });
+  toggleButtonState(submitButtonElement, false, config);
+}
+
+export { enableValidation, clearValidation };
