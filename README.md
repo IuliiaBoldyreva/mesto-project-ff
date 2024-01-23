@@ -9,4 +9,4 @@
 
 **Ссылка на GitHubPage**
 
-* [Ссылка:] (https://iuliiaboldyreva.github.io/mesto-project-ff/)
+* [Ссылка](https://iuliiaboldyreva.github.io/mesto-project-ff)
