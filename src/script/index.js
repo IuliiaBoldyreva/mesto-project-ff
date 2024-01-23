@@ -12,7 +12,7 @@ import {
   getInitialCards,
   getUserData,
   updateUserData,
-  updateAvatar
+  updateAvatar,
 } from "./api.js";
 
 const profileName = document.querySelector(".profile__name");
@@ -34,7 +34,14 @@ const avatarPhoto = document.querySelector(".profile__container");
 const title = document.querySelector("#nameCard");
 const urlImg = document.querySelector("#urlCard");
 
+function changeFormButtonText(formNode, textContent) {
+  const submitButton = formNode.querySelector(".popup__save-button");
+
+  submitButton.textContent = textContent;
+}
+
 changeButton.addEventListener("click", () => {
+  changeFormButtonText(formElementEdit, 'Сохранить');
   clearValidation(formElementEdit, config);
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
@@ -43,12 +50,14 @@ changeButton.addEventListener("click", () => {
 });
 
 addButton.addEventListener("click", () => {
+  changeFormButtonText(formElementEdit, 'Сохранить');
   clearValidation(formElementAdd, config);
 
   openPopup(popupAddphoto);
 });
 
 avatarPhoto.addEventListener("click", () => {
+  changeFormButtonText(formElementEdit, 'Сохранить');
   clearValidation(formElementAvatar, config);
   inputAvatarUrl.value = profilePhoto.src;
 
@@ -64,15 +73,9 @@ document.querySelectorAll(".popup__close-button").forEach((button) => {
   });
 });
 
-function toggleFormLoadingState(formNode) {
-  const submitButton = formNode.querySelector(".popup__save-button");
-
-  submitButton.classList.toggle('popup__save-button_loading');
-}
-
 function handleFormSubmit(event) {
   event.preventDefault();
-  toggleFormLoadingState(event.target)
+  changeFormButtonText(event.target, "Сохранение...");
 
   updateUserData({ name: inputName.value, about: inputJob.value })
     .then((userData) => {
@@ -80,10 +83,7 @@ function handleFormSubmit(event) {
       profileJob.textContent = userData.about;
       closePopup(popupEditProfile);
     })
-    .catch(console.log)
-    .finally(() => {
-      toggleFormLoadingState(event.target)
-    })
+    .catch(console.log);
 }
 
 formElementEdit.addEventListener("submit", handleFormSubmit);
@@ -101,7 +101,7 @@ function renderCard(data, container) {
 
 function handleAddCard(event) {
   event.preventDefault();
-  toggleFormLoadingState(event.target)
+  changeFormButtonText(event.target, "Сохранение...");
 
   addCard({ name: title.value, link: urlImg.value })
     .then((card) => {
@@ -124,29 +124,23 @@ function handleAddCard(event) {
 
       closePopup(popupAddphoto);
     })
-    .catch(console.log)
-    .finally(() => {
-      toggleFormLoadingState(event.target)
-    })
+    .catch(console.log);
 }
 formElementAdd.addEventListener("submit", handleAddCard);
 
 function handleEditAvatar(event) {
   event.preventDefault();
-  toggleFormLoadingState(event.target);
+  changeFormButtonText(event.target, "Сохранение...");
+
   updateAvatar(inputAvatarUrl.value)
     .then(() => {
       profilePhoto.src = inputAvatarUrl.value;
       closePopup(popupAvatar);
     })
-    .catch(console.log)
-    .finally(() => {
-      toggleFormLoadingState(event.target);
-    })
+    .catch(console.log);
 }
 
 formElementAvatar.addEventListener("submit", handleEditAvatar);
-
 
 enableValidation(config);
 

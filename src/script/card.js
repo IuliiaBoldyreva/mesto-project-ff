@@ -3,26 +3,18 @@ import { openPhotoPopup } from "./modal";
 
 export function handleLikeCard(event) {
   const cardId = event.target.getAttribute("data-id");
-  const hasLike = event.target.getAttribute("data-has-like");
+  const hasLike = event.target.classList.contains("photo-grid__like-button_active");
 
   const cardNode = event.target.closest(".photo-grid__item");
   const likeCountNode = cardNode.querySelector(".photo-grid__like-count");
 
-  if (hasLike === "true") {
-    deleteLike(cardId)
-      .then((updatedCard) => {
-        event.target.classList.remove("photo-grid__like-button_active");
-        likeCountNode.textContent = updatedCard.likes.length;
-      })
-      .catch(console.log);
-  } else {
-    addLike(cardId)
-      .then((updatedCard) => {
-        event.target.classList.add("photo-grid__like-button_active");
-        likeCountNode.textContent = updatedCard.likes.length;
-      })
-      .catch(console.log);
-  }
+  const likeMethod = hasLike ? deleteLike : addLike;
+
+  likeMethod(cardId).then((updatedCard) => {
+    event.target.classList.toggle("photo-grid__like-button_active");
+    likeCountNode.textContent = updatedCard.likes.length;
+  })
+  .catch(console.log);
 }
 
 export function handleCardPhotoClick(event) {
@@ -63,7 +55,6 @@ export function createCard(
   );
   const likeButton = tamplateElement.querySelector(".photo-grid__like-button");
   likeButton.setAttribute("data-id", data.id);
-  likeButton.setAttribute("data-has-like", data.hasLike);
 
   likeButton.addEventListener("click", onLikeClick);
 
